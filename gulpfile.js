@@ -48,7 +48,7 @@ let webConfigDist = {
     devtool: 'none'
 };
 
-gulp.task('sass', async function() {
+gulp.task('sass', function() {
     return gulp.src('./src/sass/style.scss')
         .pipe(sourcemaps.init())
         .pipe(
@@ -61,7 +61,6 @@ gulp.task('sass', async function() {
             ))
         )
         .pipe(autoprefixer({
-            browsers: ['last 3 versions', '> 1%'],
             cascade: true,
         }))
         .pipe(sourcemaps.write('./map'))
@@ -69,14 +68,14 @@ gulp.task('sass', async function() {
         .pipe(browserSync.reload({stream:true}))
 });
 
-gulp.task('html-php', async function() {
+gulp.task('html-php', function() {
     return gulp.src(['./src/*.html', './src/*.php'])
         .pipe(rigger())
         .pipe(gulp.dest('./tmp'))
         .pipe(browserSync.reload({stream: true}))
 });
 
-gulp.task('scripts', async function() {
+gulp.task('scripts', function() {
     return gulp.src('./src/js/main.js')
         .pipe(
             webpack(webConfig).on('error', function handleError() {
@@ -86,19 +85,19 @@ gulp.task('scripts', async function() {
         .pipe(browserSync.reload({stream: true}))
 });
 
-gulp.task('images', async function() {
+gulp.task('images', function() {
     return gulp.src('./src/img/**/*')
         .pipe(gulp.dest('./tmp/img'))
         .pipe(browserSync.reload({stream: true})) 
 });
 
-gulp.task('fonts', async function() {
+gulp.task('fonts', function() {
     return gulp.src('./src/fonts/**/*')
         .pipe(gulp.dest('./tmp/fonts'))
         .pipe(browserSync.reload({stream: true}))
 });
 
-gulp.task('video', async function() {
+gulp.task('video', function() {
     return gulp.src('./src/video/**/*')
         .pipe(gulp.dest('./tmp/video'))
         .pipe(browserSync.reload({stream: true}))
@@ -147,7 +146,6 @@ gulp.task('prebuild', async function() {
             ))
         )
         .pipe(autoprefixer({
-            browsers: ['last 3 versions', '> 1%'],
             cascade: true,
         }))
         .pipe(cssClean({
