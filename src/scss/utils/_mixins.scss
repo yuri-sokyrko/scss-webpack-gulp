@@ -1,0 +1,36 @@
+@mixin transition($default-transition) {
+    transition: $default-transition;
+}
+
+@mixin font($font-size, $line-height, $color) {
+    font-size: $font-size;
+    line-height: $line-height;
+    color: $color;
+}
+
+@mixin fixed-center {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@mixin absolute-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@mixin copy-size {
+    width: 100%;
+    height: 100%;
+}
+
+@mixin proportion-width($full, $part) {
+    width: calc((#{$part} * 100%) / #{$full});
+}
+
+@mixin proportion-height($full, $part) {
+    height: calc((#{$part} * 100%) / #{$full});
+}

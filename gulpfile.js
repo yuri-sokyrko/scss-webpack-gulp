@@ -1,5 +1,5 @@
 let gulp =         require('gulp'),
-    sass =         require('gulp-sass'),
+    scss =         require('gulp-sass'),
     rigger =       require('gulp-rigger'),
     browserSync =  require('browser-sync'),
     sourcemaps =   require('gulp-sourcemaps'),
@@ -48,15 +48,15 @@ let webConfigDist = {
     devtool: 'none'
 };
 
-gulp.task('sass', function() {
-    return gulp.src('./src/sass/style.scss')
+gulp.task('scss', function() {
+    return gulp.src('./src/scss/style.scss')
         .pipe(sourcemaps.init())
         .pipe(
-            sass().on('error', notify.onError(
+            scss().on('error', notify.onError(
                 {
                     sound: false,
                     message: "<%= error.message %>",
-                    title  : "Sass Error!"
+                    title  : "scss Error!"
                 }
             ))
         )
@@ -114,7 +114,7 @@ gulp.task('browser-sync', async function(){
 
 gulp.task('watch', async function() {
     gulp.watch('./src/*.html', gulp.parallel('html-php'));
-    gulp.watch('./src/sass/**/*.scss', gulp.parallel('sass'));
+    gulp.watch('./src/scss/**/*.scss', gulp.parallel('scss'));
     gulp.watch('./src/js/**/*.js', gulp.parallel('scripts'));
     gulp.watch('./src/templates/*.html', gulp.parallel('html-php'));
     gulp.watch('./src/img/**/*', gulp.parallel('images'));
@@ -135,13 +135,13 @@ gulp.task('img', async function() {
 });
 
 gulp.task('prebuild', async function() {
-    var distCss = gulp.src('./src/sass/**/*.scss')
+    var distCss = gulp.src('./src/scss/style.scss')
         .pipe(
-            sass().on('error', notify.onError(
+            scss().on('error', notify.onError(
                 {
                     sound: false,
                     message: "<%= error.message %>",
-                    title  : "Sass Error!"
+                    title  : "scss Error!"
                 }
             ))
         )
@@ -191,6 +191,6 @@ gulp.task('clean-dev', async function() {
 	return del.sync('./tmp');
 });
 
-gulp.task('default', gulp.series('clean-dev', 'sass', 'html-php', 'scripts', 'images', 'fonts', 'video', 'browser-sync', 'watch'));
+gulp.task('default', gulp.series('clean-dev', 'scss', 'html-php', 'scripts', 'images', 'fonts', 'video', 'browser-sync', 'watch'));
 
 gulp.task('dist', gulp.series('clean-dev', 'prebuild', 'img'));

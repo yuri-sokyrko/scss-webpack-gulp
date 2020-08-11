@@ -1,29 +1,28 @@
 # scss-webpack-gulp
-## Frontend boilerplate
+## Frontend boilerplate with scss
 ***
 
-Данный репозиторий содержит в себе базовый шаблон (заготовку) для быстрого старта фронт-енд проекта.
+This is a boilerplate for front-end projects.
 ***
-### Функции для запуска
-1. _*npm i*_ - установка пакетов необходимых для сборки проекта
-2. _*npm run gulp*_ - создание временной версии проекта в режиме "разработка". Запускает локальный сервер для просмотра проекта, создает папку _tmp_ из которой временно будет хоститься проект
-3. _*npm run gulp dist*_ - создает продакшн версию проекта. После вызова этой команды создается папка _tmp_ и _dist_, папка продакшена берет собранный код проекта (html, css, js) из папки tmp, изображения оптимизируються и переносяться из папки src/img, шрифты переносяться из папки src/fonts.
-4. _*npm run gulp clear*_ - очистка кеша. Использование при некорректной работе сборщика и перед финальным продакшеном.
-5. _*npm run gulp clean-dev*_ - Удаление папки tmp. Необходимо произвести перед загрузкой проекта на GitHub.
-6. _*npm run gulp clean-dist*_ - Удаление папки dist.
+### Base Commands
+1. _*npm i*_ - install node modules
+2. _*npm run gulp*_ - start to watch the project, makes _tmp_ to serve the project
+3. _*npm run gulp dist*_ - compile the project to _dist_ folder. After you call this command you'll get compiled and optimized version of your project (optimized html, styles, js, images).
+4. _*npm run gulp clear*_ - clears build-cache.
+5. _*npm run gulp clean-dev*_ - delete _tmp_ folder.
+6. _*npm run gulp clean-dist*_ - delete _dist_ folder.
 ***
 
-### Отдельные функции для сборки
-* _*npm run gulp sass*_ - сборка scss в папку tmp;
-* _*npm run gulp html-php*_ - сборка html и php файлов в папку tmp;
-* _*npm run gulp html-php*_ - сборка html и php файлов в папку tmp;
-* _*npm run gulp scripts*_ - сборка JS scripts файлов в папку tmp;
-* _*npm run gulp fonts-images*_ - копирование шрифтов и картинок в папку tmp;
+### Special Commands
+* _*npm run gulp scss*_ - compile styles to tmp folder;
+* _*npm run gulp html-php*_ - compile html or/and php to tmp folder;
+* _*npm run gulp scripts*_ - compile JS to tmp folder;
+* _*npm run gulp fonts-images*_ - copy fonts and images to tmp folder;
 
-### Результат работы сборщика
-В результате работы сборщика мы получаем папку *dist*, которая содержит в себе:
-* папку *css* с файлом *style.css*, этот файл содержит в себе все стили проекта. Файл предоставляеться в минифицированном виде.
-* папку *js* с файлом *main.js*, этот файл содержит в себе все скирпты проекта. Файл предоставляеться в минифицированном виде.
-* папку *img* в которой размещены оптимизированные изображения.
-* папку *fonts* в которой размещены шрифты.
-* файлы *html* и/или *php* в собранном и оптимизированном виде.
+### The result of work
+As a result of the work of the collector, we get the *dist* folder, which contains:
+* *css* folder with the file *style.css*, this file contains all the styles of the project. The file is provided in minified form.
+* *js* folder with the *main.js* file, this file contains all the project skirtings. The file is provided in minified form.
+* *img* folder where the optimized images are located.
+* *fonts* folder where fonts are located.
+* compiled *html* and/or *php* files.

@@ -2,15 +2,24 @@
  * External libs
  */
 import $ from 'jquery';
-import 'core-js/features/promise';
+// import 'core-js/features/promise';
 
 /**
  * Custom libs and functions
  */
-import {handler} from './handler.js';
-import {viewport} from './handler.js';
+import {handler} from './functions/handler.js';
+import {viewport} from './functions/handler.js';
 
-var startWindowScroll = 0;
+import {initMagnificInline} from './functions/initPopups.js';
+import {initMagnificIframe} from './functions/initPopups.js';
+import {initMagnificGallery} from './functions/initPopups.js';
+
+import {initSLick} from './functions/initSliders.js';
+
+import {mobileNavToggle} from './functions/utils.js';
+import {dropDown} from './functions/utils.js';
+import {removeToggle} from './functions/utils.js';
+import {tabs} from './functions/utils.js';
 
 $(window).on('load', function(){
 	if(/iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
@@ -90,148 +99,6 @@ $(document).ready(function(){
 
 $(window).on('resize', handler);
 
-function initMagnificInline() {
-	if($('.js-popup').length){
-		$('.js-popup').magnificPopup({
-			fixedBgPos: true,
-			fixedContentPos: true,
-			showCloseBtn: true,
-			removalDelay: 0,
-			preloader: true,
-			type:"inline",
-			mainClass: 'mfp-fade mfp-s-loading',
-			galery: {enabled: true},
-			callbacks: {
-				beforeOpen: function() {
-					startWindowScroll = $(window).scrollTop();
-				},
-				open: function(){
-					//initSliders
-	
-					if ( $('.mfp-content').height() < $(window).height() ){
-						$('body').on('touchmove', function (e) {
-							e.preventDefault();
-						  });
-					}
-				},
-				close: function() {
-					//destroySliders
-	
-					$(window).scrollTop(startWindowScroll);
-					$('body').off('touchmove');
-				}
-			}
-		});
-	}
-}
-
-function initMagnificGallery() {
-	if($('.js-popup-gallery').length) {
-		for(let i = 0; i < $('.js-popup-gallery').length; i++) {
-			$('.js-popup-gallery').eq(i).magnificPopup({
-				delegate: 'a.img-wrapper',
-				type: 'image',
-				tLoading: 'Loading image #%curr%...',
-				mainClass: 'mfp-img-mobile mfp-with-zoom',
-				fixedBgPos: true,
-				fixedContentPos: true,
-				gallery: {
-					enabled: true,
-					navigateByImgClick: true,
-					preload: [0,1],
-					tCounter: '<span class="mfp-counter">%curr% из %total%</span>'
-				},
-				image: {
-					tError: '<a href="%url%">The image #%curr%</a> could not be loaded.',
-					titleSrc: function(item) {
-						return item.el.attr('title') + `<p>${item.el.attr('data-text')}</p>`;
-					}
-				},
-				zoom: {
-					enabled: true,
-					duration: 300
-				},
-				overflowY: 'auto',
-				callbacks: {
-					// Utils.magnificPopupConfiguration()
-					beforeOpen: function() {
-						startWindowScroll = $(window).scrollTop();
-					},
-					open: function(){
-						if ( $('.mfp-content').height() < $(window).height() ){
-							$('body').on('touchmove', function (e) {
-								e.preventDefault();
-							  });
-						}
-					},
-					close: function() {
-						$(window).scrollTop(startWindowScroll);
-						$('body').off('touchmove');
-					}
-				}
-			});
-		}
-	}
-}
-
-function initMagnificIframe() {
-	if($('.js-popup-iframe').length) {
-		$('.js-popup-iframe').magnificPopup({
-			fixedBgPos: true,
-			fixedContentPos: true,
-			showCloseBtn: true,
-			removalDelay: 300,
-			preloader: true,
-			type:"iframe",
-			mainClass: 'mfp-fade mfp-s-loading',
-			galery: {enabled: true},
-			callbacks: {
-				beforeOpen: function() {
-					startWindowScroll = $(window).scrollTop();
-				},
-				open: function(){
-					//initSliders
-
-					if ( $('.mfp-content').height() < $(window).height() ){
-						$('body').on('touchmove', function (e) {
-							e.preventDefault();
-						});
-					}
-				},
-				close: function() {
-					//destroySliders
-
-					$(window).scrollTop(startWindowScroll);
-					$('body').off('touchmove');
-				}
-			}
-		});
-	}
-}
-
-function initSLick (slickItem, slickVars) {
-	slickItem.slick(slickVars).resize();
-}
-
-function mobileNavToggle(dropDownBtn, navItem) {
-	dropDownBtn.toggleClass('active');
-	removeToggle(navItem);
-}
-
-function dropDown(dropDownBtn) {
-	dropDownBtn.toggleClass('active');
-	var toggleBlock = dropDownBtn.parent().find('.js-dropdown');
-	removeToggle(toggleBlock);
-}
-
-function removeToggle(toggleBlock) {
-	toggleBlock.slideToggle(300, function() {
-		if ($(this).css('display') === 'none') {
-			$(this).removeAttr('style');
-		}
-	});
-}
-
 $(document).mouseup(function (e){
 	// if($('.js-dropdown').hasClass('opened')){
 	// 	var div = $('.js-dropdown');
@@ -241,42 +108,3 @@ $(document).mouseup(function (e){
 	// 	}
 	// }
 });
-
-// function initSliders(){
-// 	$('.js-popupMainSlider').slick({
-// 		dots: false,
-// 		arrows: false,
-// 		adaptiveHeight: true,
-// 		slidesToShow: 1,
-// 		slidesToScroll: 1,
-// 		infinite: true,
-// 		asNavFor: '.js-popupTabs',
-// 		fade: true,
-// 		cssEase: 'linear',
-// 	}).resize();
-		
-// 	$('.js-popupNavSlider').slick({
-// 		dots: false,
-// 		arrows: false,
-// 		focusOnSelect: true,
-// 		slidesToShow: 4,
-// 		slidesToScroll: 1,
-// 		infinite: true,
-// 		vertical: true,
-// 		asNavFor: '.js-popupTabContent',
-// 		fade: false,
-// 		responsive: [
-// 			{
-// 				breakpoint: 768,
-// 				settings: {
-// 					vertical: false,
-// 				},
-// 			}
-// 		]
-// 	}).resize();
-// }
-
-// function destroySliders(){
-// 	$('.js-popupMainSlider').slick('unslick');
-// 	$('.js-popupNavSlider').slick('unslick');
-// }

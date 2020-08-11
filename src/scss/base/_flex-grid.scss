@@ -20,7 +20,7 @@
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
-	margin: 0 #{-$grid-gap};
+	margin: 0 -$grid-gap;
 
 	&--full-sized{
 		margin: 0;
@@ -151,7 +151,7 @@
 /*==========  Desktop First Method  ==========*/
 
 /* Large Devices, Wide Screens */
-@media only screen and (max-width : 1279px) {
+@media (max-width: $screen-lg-max) {
 	.hidden-lg{
 		display: none !important;
 	}
@@ -252,7 +252,7 @@
 }
 
 /* Medium Devices, Desktops */
-@media only screen and (max-width : 991px) {
+@media (max-width: $screen-md-max) {
 	.hidden-md{
 		display: none !important;
 	}
@@ -353,7 +353,7 @@
 }
 
 /* Small Devices, Tablets */
-@media only screen and (max-width : 767px) {
+@media (max-width: $screen-sm-max) {
 	.hidden-sm{
 		display: none !important;
 	}
@@ -455,7 +455,7 @@
 }
 
 /* Extra Small Devices, Phones */
-@media only screen and (max-width : 575px) {
+@media (max-width: $screen-xs-max) {
 	.hidden-xs{
 		display: none !important;
 	}
@@ -552,7 +552,7 @@
 }
 
 /* Custom, iPhone Retina */
-@media only screen and (max-width : 320px) {
+@media (max-width: $screen-xxs-max) {
 
 }
 
@@ -560,33 +560,33 @@
 /*==========  Mobile First Method  ==========*/
 
 /* Custom, iPhone Retina */
-@media only screen and (min-width : 320px) {
+@media (min-width: $screen-xs-min) {
 
 }
 
 /* Extra Small Devices, Phones */
-@media only screen and (min-width : 576px) {
+@media (min-width: $screen-sm-min) {
 	.visible-xs{
 		display: none !important;
 	}
 }
 
 /* Small Devices, Tablets */
-@media only screen and (min-width : 768px) {
+@media (min-width: $screen-md-min) {
 	.visible-sm{
 		display: none !important;
 	}
 }
 
 /* Medium Devices, Desktops */
-@media only screen and (min-width : 992px) {
+@media (min-width: $screen-lg-min) {
 	.visible-md{
 		display: none !important;
 	}
 }
 
  /* Large Devices, Wide Screens */
-@media only screen and (min-width : 1280px) {
+@media (min-width: $screen-xl-min) {
 	.visible-lg{
 		display: none !important;
 	}

@@ -1,5 +1,5 @@
-@import '../utils/mixins';
 @import '../utils/variables';
+@import '../utils/mixins';
 @import 'flex-grid';
 
 body {
@@ -10,7 +10,7 @@ body {
 	height: 100%;
 	line-height: 1;
 	position: relative;
-	font-size: $base-font-size!important;
+	font-size: $base-font-size !important;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
