@@ -20,7 +20,7 @@
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
-	margin: 0 -$grid-gap;
+	margin: 0 #{-$grid-gap};
 
 	&--full-sized{
 		margin: 0;
