@@ -51,7 +51,7 @@
 }
 
 /* Medium Devices, Desktops */
-@media @(min-width: $screen-lg-min) {
+@media (min-width: $screen-lg-min) {
 
 }
 
