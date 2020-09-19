@@ -8,27 +8,27 @@
 /*==========  Desktop First Method  ==========*/
 
 /* Large Devices, Wide Screens */
-@media (min-width: $screen-lg-max) {
+@media (max-width: $screen-lg-max) {
 
 }
 
 /* Medium Devices, Desktops */
-@media (min-width: $screen-md-max) {
+@media (max-width: $screen-md-max) {
 
 }
 
 /* Small Devices, Tablets */
-@media (min-width: $screen-sm-max) {
+@media (max-width: $screen-sm-max) {
 
 }
 
 /* Extra Small Devices, Phones */
-@media (min-width: $screen-xs-max) {
+@media (max-width: $screen-xs-max) {
 
 }
 
 /* Custom, iPhone Retina */
-@media (min-width: $screen-xxs-max) {
+@media (max-width: $screen-xxs-max) {
 
 }
 
