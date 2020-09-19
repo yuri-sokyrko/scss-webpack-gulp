@@ -8,7 +8,7 @@
 /*==========  Desktop First Method  ==========*/
 
 /* Large Devices, Wide Screens */
-@media (min-width: $screen-md-max) {
+@media (min-width: $screen-lg-max) {
 
 }
 
