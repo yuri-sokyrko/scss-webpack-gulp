@@ -8,27 +8,27 @@
 /*==========  Desktop First Method  ==========*/
 
 /* Large Devices, Wide Screens */
-@media @screen-lg-max {
+@media (min-width: $screen-md-max) {
 
 }
 
 /* Medium Devices, Desktops */
-@media @screen-md-max {
+@media (min-width: $screen-md-max) {
 
 }
 
 /* Small Devices, Tablets */
-@media @screen-sm-max {
+@media (min-width: $screen-sm-max) {
 
 }
 
 /* Extra Small Devices, Phones */
-@media @screen-xs-max {
+@media (min-width: $screen-xs-max) {
 
 }
 
 /* Custom, iPhone Retina */
-@media @screen-xxs-max {
+@media (min-width: $screen-xxs-max) {
 
 }
 
@@ -36,26 +36,26 @@
 /*==========  Mobile First Method  ==========*/
 
 /* Custom, iPhone Retina */
-@media @screen-xs-min {
+@media (min-width: $screen-xs-min) {
 
 }
 
 /* Extra Small Devices, Phones */
-@media @screen-sm-min {
+@media (min-width: $screen-sm-min) {
 
 }
 
 /* Small Devices, Tablets */
-@media @screen-md-min {
+@media (min-width: $screen-md-min) {
 
 }
 
 /* Medium Devices, Desktops */
-@media @screen-lg-min {
+@media @(min-width: $screen-lg-min) {
 
 }
 
  /* Large Devices, Wide Screens */
-@media @screen-xl-min {
+@media (min-width: $screen-xl-min) {
 
 }
