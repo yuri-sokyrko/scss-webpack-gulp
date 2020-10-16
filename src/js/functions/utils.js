@@ -39,3 +39,36 @@ export function tabs(containerName, buttonName, itemName) {
 		});
 	}
 }
+
+export function expandText() {
+	if($('.js-expand-text').length) {
+		var showChar = 225;
+    	var ellipsestext = "...";
+
+		$('.js-expand-text p').each(function() {
+			var content = $(this).html();
+
+			if(content.length > showChar) { 
+				$(this).parent().addClass('long');
+
+				var c = content.substr(0, showChar);
+				var h = content;	 
+				var html =  `
+					<span class="excerpt">${c}</span>
+					<span class="moreellipses">${ellipsestext}&nbsp;</span>
+					<span class="morecontent">${h}</span>`;	 
+				$(this).html(html);
+			}
+		});
+
+		$('.js-expand-button').on('click', function(e) {
+			e.preventDefault();
+
+			$(this).hide();
+			let content = $(this).siblings('.js-expand-text').find('p');
+			content.find('.excerpt').hide();
+			content.find('.moreellipses').hide();
+			content.find('.morecontent').show();
+		});
+	}
+}

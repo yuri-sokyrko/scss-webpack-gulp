@@ -10,16 +10,11 @@ import $ from 'jquery';
 import {handler} from './functions/handler.js';
 import {viewport} from './functions/handler.js';
 
-import {initMagnificInline} from './functions/initPopups.js';
-import {initMagnificIframe} from './functions/initPopups.js';
-import {initMagnificGallery} from './functions/initPopups.js';
+import {initMagnificInline, initMagnificIframe, initMagnificGallery} from './functions/initPopups.js';
 
 import {initSLick} from './functions/initSliders.js';
 
-import {mobileNavToggle} from './functions/utils.js';
-import {dropDown} from './functions/utils.js';
-import {removeToggle} from './functions/utils.js';
-import {tabs} from './functions/utils.js';
+import {mobileNavToggle, dropDown, removeToggle, tabs, expandText} from './functions/utils.js';
 
 $(window).on('load', function(){
 	if(/iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
