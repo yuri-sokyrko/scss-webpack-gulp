@@ -11,7 +11,8 @@ let gulp =         require('gulp'),
     imagemin =     require('gulp-imagemin'),
     pngquant =     require('imagemin-pngquant'),
     del =          require('del'),
-    webpack =      require('webpack-stream');
+    webpack =      require('webpack-stream'),
+    webp =         require('gulp-webp');
 
 let webConfig = {
     output: {
@@ -87,6 +88,7 @@ gulp.task('scripts', function() {
 
 gulp.task('images', function() {
     return gulp.src('./src/img/**/*')
+        .pipe(webp())
         .pipe(gulp.dest('./tmp/img'))
         .pipe(browserSync.reload({stream: true})) 
 });
@@ -131,6 +133,7 @@ gulp.task('img', async function() {
 			optimizationLevel: 3,
 			use: [pngquant()]
 		})))
+        .pipe(webp())
 		.pipe(gulp.dest('./dist/img'));
 });
 
